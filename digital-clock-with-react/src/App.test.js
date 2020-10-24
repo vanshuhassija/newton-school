@@ -41,7 +41,7 @@ describe("Clock is Running1", () => {
     var flag = false;
     if(cm === 59 && cs === 59){
       if(ch === 11){
-        flag = (nh === 12 && nm === 0 && ns === 0 && cpm != npm);
+        flag = (nh === 12 && nm === 0 && ns === 0 && cpm !== npm);
       } 
       if(ch === 12){
         flag = (nh === 1 && nm === 0 && ns === 0 && cpm === npm);
@@ -79,7 +79,7 @@ describe("Clock is Running2", () => {
     var flag = false;
     if(cm === 59){
       if(ch === 11){
-        flag = (nh === 12 && nm === 0 && ns === cs && cpm != npm);
+        flag = (nh === 12 && nm === 0 && ns === cs && cpm !== npm);
       } 
       else if(ch === 12){
         flag = (nh === 1 && nm === 0 && ns === cs && cpm === npm);
@@ -96,7 +96,7 @@ describe("Clock is Running2", () => {
 })
 
 describe("Clock is Running3", () => {
-  it("should increment time by 1min after 1 minute", () => {
+  it("should increment time by 1hr after 1 hour", () => {
     jest.useFakeTimers('modern');
     const component = shallow(<App />);
     const curr_time= component.find('#time').text();
@@ -115,7 +115,7 @@ describe("Clock is Running3", () => {
     if(ch === 12){
       flag = (nh === 1 && nm === cm && cs === ns && npm === cpm);
     } else if(ch === 11){
-      flag = (nh === 12 && nm === cm && cs === ns && npm != cpm);
+      flag = (nh === 12 && nm === cm && cs === ns && npm !== cpm);
     }
     else{
       flag = (nh === ch + 1 && nm === cm && cs === ns && npm === cpm);
