@@ -61,7 +61,7 @@ describe("Clock is Running1", () => {
 
 
 describe("Clock is Running2", () => {
-  it("Should increment time by 60sec after 60 second", () => {
+  it("Should increment minute after 60 second", () => {
     jest.useFakeTimers('modern');
     const component = shallow(<App />);
     const curr_time= component.find('#time').text();
@@ -96,7 +96,7 @@ describe("Clock is Running2", () => {
 })
 
 describe("Clock is Running3", () => {
-  it("Should increment time by 3600sec after 3600 second", () => {
+  it("Should increment hour after 60 minutes", () => {
     jest.useFakeTimers('modern');
     const component = shallow(<App />);
     const curr_time= component.find('#time').text();
