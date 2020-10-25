@@ -23,7 +23,7 @@ describe("Should have a clock", () => {
 
 
 describe("Clock is Running1", () => {
-  it("should increment time by 1sec after 1 second", () => {
+  it("Should increment time by 1sec after 1 second", () => {
     jest.useFakeTimers('modern');
     const component = shallow(<App />);
     const curr_time= component.find('#time').text();
@@ -33,11 +33,11 @@ describe("Clock is Running1", () => {
     var ch = parseInt(curr_time.slice(0, curr_time.indexOf(':')));
     var cm = parseInt(curr_time.slice(curr_time.indexOf(':')+1, curr_time.lastIndexOf(':')));
     var cs = parseInt(curr_time.slice(curr_time.lastIndexOf(':') + 1, curr_time.indexOf(' ')));
-    var cpm = curr_time.indexOf('P');
+    var cpm = curr_time.indexOf('P') !== -1;
     var nh = parseInt(new_time.slice(0, new_time.indexOf(':')));
     var nm = parseInt(new_time.slice(new_time.indexOf(':') + 1, new_time.lastIndexOf(':')));
     var ns = parseInt(new_time.slice(new_time.lastIndexOf(':') + 1, new_time.indexOf(' ')));
-    var npm = new_time.indexOf('P');
+    var npm = new_time.indexOf('P') !== -1;
     var flag = false;
     if(cm === 59 && cs === 59){
       if(ch === 11){
@@ -61,7 +61,7 @@ describe("Clock is Running1", () => {
 
 
 describe("Clock is Running2", () => {
-  it("should increment time by 1min after 1 minute", () => {
+  it("Should increment time by 60sec after 60 second", () => {
     jest.useFakeTimers('modern');
     const component = shallow(<App />);
     const curr_time= component.find('#time').text();
@@ -71,11 +71,11 @@ describe("Clock is Running2", () => {
     var ch = parseInt(curr_time.slice(0, curr_time.indexOf(':')));
     var cm = parseInt(curr_time.slice(curr_time.indexOf(':')+1, curr_time.lastIndexOf(':')));
     var cs = parseInt(curr_time.slice(curr_time.lastIndexOf(':') + 1, curr_time.indexOf(' ')));
-    var cpm = curr_time.indexOf('P');
+    var cpm = curr_time.indexOf('P') !== -1;
     var nh = parseInt(new_time.slice(0, new_time.indexOf(':')));
     var nm = parseInt(new_time.slice(new_time.indexOf(':') + 1, new_time.lastIndexOf(':')));
     var ns = parseInt(new_time.slice(new_time.lastIndexOf(':') + 1, new_time.indexOf(' ')));
-    var npm = new_time.indexOf('P');
+    var npm = new_time.indexOf('P') !== -1;
     var flag = false;
     if(cm === 59){
       if(ch === 11){
@@ -96,7 +96,7 @@ describe("Clock is Running2", () => {
 })
 
 describe("Clock is Running3", () => {
-  it("should increment time by 1hr after 1 hour", () => {
+  it("Should increment time by 3600sec after 3600 second", () => {
     jest.useFakeTimers('modern');
     const component = shallow(<App />);
     const curr_time= component.find('#time').text();
@@ -106,11 +106,11 @@ describe("Clock is Running3", () => {
     var ch = parseInt(curr_time.slice(0, curr_time.indexOf(':')));
     var cm = parseInt(curr_time.slice(curr_time.indexOf(':')+1, curr_time.lastIndexOf(':')));
     var cs = parseInt(curr_time.slice(curr_time.lastIndexOf(':') + 1, curr_time.indexOf(' ')));
-    var cpm = curr_time.indexOf('P');
+    var cpm = curr_time.indexOf('P') !== -1;
     var nh = parseInt(new_time.slice(0, new_time.indexOf(':')));
     var nm = parseInt(new_time.slice(new_time.indexOf(':') + 1, new_time.lastIndexOf(':')));
     var ns = parseInt(new_time.slice(new_time.lastIndexOf(':') + 1, new_time.indexOf(' ')));
-    var npm = new_time.indexOf('P');
+    var npm = new_time.indexOf('P') !== -1;
     var flag = false;
     if(ch === 12){
       flag = (nh === 1 && nm === cm && cs === ns && npm === cpm);
